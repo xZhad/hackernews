@@ -1,0 +1,26 @@
+Hi!
+
+I made this example using:
+node: v7.7.2
+
+To install dependencies please run
+npm install
+
+Then please set up a mongodb to the data directory before you start
+mongod --dbpath /data
+
+To start the app use
+npm start
+
+Then load a web browser at
+http://localhost:3000/
+
+
+NOTES:
+
+* I made it so it checks de provided URL and loads the data on startup,
+so the first time you load the site it already has articles
+(app.js:91 > checkAPI();)
+
+* This version includes the functionality,
+I'll be adding bootstrap and some stylish work next!

@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1.
+    HN Feed
+  h4.
+    We <3 hacker news!
+  #wrapper
+    #articlelist
+      table
+        tbody
+  //- ul
+  //-   each article, i in articles
+  //-     - var article_title = null
+  //-     if article.story_title != null
+  //-       - var article_title = article.story_title
+  //-     else
+  //-       if article.title != null
+  //-         - var article_title = article.title
+  //-     - var article_url = null
+  //-     if article.story_url != null
+  //-       - var article_url = article.story_url
+  //-     else
+  //-       if article.url != null
+  //-         - var article_url = article.url
+  //-     if article_title != null
+  //-       li
+  //-         a(href="#{article_url}", target="_blank")= article_title
+  //-         a(href="#", class="linkdeleteuser", rel="' + article._id + '") delete
