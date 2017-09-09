@@ -1,11 +1,7 @@
 var express = require('express');
-var router = express.Router();
+var article = express.Router();
 
-router.get('/', function(req, res, next) {
-  res.render('index', {});
-});
-
-router.get('/article', function(req, res) {
+article.get('/', function(req, res) {
     var db = req.db;
     var collection = db.get('hackernews');
     collection.find({"is_active": true}, {sort: {'created_at_i': -1}}, function(e, articles) {
@@ -13,7 +9,7 @@ router.get('/article', function(req, res) {
     });
 });
 
-router.delete('/article/:id', function(req, res) {
+article.delete('/:id', function(req, res) {
   var db = req.db;
   var collection = db.get('hackernews');
   var articleToDelete = req.params.id;
@@ -22,4 +18,4 @@ router.delete('/article/:id', function(req, res) {
   });
 });
 
-module.exports = router;
+module.exports = article;

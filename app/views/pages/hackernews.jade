@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  script(src='/views/private/hackernews.js')
+  .container
+    header.jumbotron2.my-4
+      h1.display-3.
+        HN Feed
+      p.lead.
+        We <3 hacker news!
+    #wrapper
+      #articlelist
+        table.table.table-hover.fa-hover
+          tbody

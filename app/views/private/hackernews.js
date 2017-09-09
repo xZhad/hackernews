@@ -2,8 +2,8 @@
 var articleListData = [];
 
 $(document).ready(function() {
+    $('#articlelist table tbody').on('click', 'tr.openarticle', openArticle);
     $('#articlelist table tbody').on('click', 'td a.deletearticle', deleteArticle);
-
     populateTable();
 });
 
@@ -29,15 +29,37 @@ function populateTable() {
                 article_url = this.url
 
             if (article_title != null) {
-                tableContent += '<tr>';
-                tableContent += '<td><a href="' + article_url + '" target="_blank" class="articletitle" >' + article_title + '</a></td>';
-                tableContent += '<td><a href="#" class="deletearticle" rel="' + this._id + '">delete</a></td>';
+                tableContent += '<tr class="openarticle" rel="' + article_url + '">';
+                tableContent += '<td><span class="article-title">' + article_title + '</span><span class="article-author"> - ' + this.author + ' - </span></td>';
+                tableContent += '<td><span class="article-date">' + formatTime(this.created_at) + '</span></td>';
+                tableContent += '<td><a href="#" class="deletearticle" rel="' + this._id + '"><i class="fa fa-trash-o fa-2x"></i></a></td>';
                 tableContent += '</tr>';
             }
         });
 
         $('#articlelist table tbody').html(tableContent);
     });
+};
+
+function formatTime(date){
+    if (!moment.isMoment(date)) {
+        date = moment(date);
+    }
+
+    if (date.isSame(moment(), 'day')) {
+        return date.format('hh:mm a');
+    } else if (date.isSame(moment().subtract(1, 'd'), 'day')) {
+        return 'Yesterday';
+    } else {
+        return date.format('MMM D');
+    }
+}
+
+function openArticle(event) {
+    event.preventDefault();
+    if (event.target.tagName != 'I') {
+        window.open($(this).attr('rel'));
+    }
 };
 
 function deleteArticle(event) {

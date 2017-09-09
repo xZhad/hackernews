@@ -6,7 +6,7 @@ node: v7.7.2
 To install dependencies please run
 npm install
 
-Then please set up a mongodb to the data directory before you start
+Then please set up a mongodb pointing to the data directory before you start
 mongod --dbpath /data
 
 To start the app use
@@ -20,7 +20,24 @@ NOTES:
 
 * I made it so it checks de provided URL and loads the data on startup,
 so the first time you load the site it already has articles
-(app.js:91 > checkAPI();)
 
 * This version includes the functionality,
 I'll be adding bootstrap and some stylish work next!
+
+
+UPDATE 09/09
+
+I finally added bootstrap!
+It's looking pretty close to the example imo
+
+I also replaced the setInterval function with a cronjob using node-schedule
+it now runs at every hour when the minute is 5
+
+Following Fluxà advice, I added a bit of structure to the project
+could still be better, but it's a lot cleaner now
+
+routes/index will load both web and api routes
+and every pages.jade should have it's very own private.js to add functionality
+
+config/db it's looking pretty weak, it's my very first time using mongodb
+but I'm eager to learn

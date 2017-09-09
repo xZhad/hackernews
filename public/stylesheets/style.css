@@ -1,8 +1,78 @@
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'pacifico';
+  font-size: 13pt;
 }
 
-a {
-  color: #00B7FF;
+.card {
+  height: 100%;
+}
+
+.article-title {
+  color: #333;
+}
+
+.article-author {
+  color: #999;
+}
+
+.article-date {
+  color: #333;
+}
+
+tr.openarticle {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table.fa-hover .fa {
+  visibility: hidden;
+}
+table.fa-hover tr:hover .fa {
+  visibility: visible;
+  color: #333;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #fafafa;
+}
+
+.jumbotron2 {
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.0;
+  color: #ffffff;
+  background-color: #333333;
+}
+
+.jumbotron2 h1 {
+  font-family: 'Pacifico';
+  line-height: 1;
+  color: inherit
+}
+
+.jumbotron2 p {
+  font-family: 'Montserrat';
+  line-height: 1.4
+}
+
+.container .jumbotron2 {
+  border-radius: 6px;
+}
+
+@media screen and (min-width:768px) {
+  .jumbotron2 {
+    padding-top: 48px;
+    padding-bottom: 48px
+  }
+  .container .jumbotron2 {
+    padding-right: 60px;
+    padding-left: 60px
+  }
+  .jumbotron2 h1 {
+    font-size: 63px
+  }
 }
